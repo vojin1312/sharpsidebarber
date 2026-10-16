@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin kalendar | Sharp Side Barbershop</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<noscript><style>body{opacity:1 !important;transform:none !important;}</style></noscript>
+</head>
+<body>
+
+<div class="petals" aria-hidden="true"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="Sharp Side Barbershop logo" class="brand-logo">
+      <span class="brand-text">
+        <strong>SHARP SIDE</strong>
+        <em>admin</em>
+      </span>
+    </a>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Promeni temu">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ===== LOGIN GATE ===== -->
+<section class="section" id="adminLoginSection">
+  <div class="container">
+    <div class="cancel-card" style="max-width:420px;">
+      <h3>Admin prijava</h3>
+      <div class="form-grid">
+        <label class="field">
+          <span>Lozinka</span>
+          <input type="password" id="adminPassword" placeholder="••••••••">
+        </label>
+      </div>
+      <button type="button" class="btn btn-primary btn-block" id="adminLoginBtn">Uđi</button>
+      <p class="cancel-note">Ova stranica nije namenjena mušterijama — samo timu Sharp Side.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADMIN KALENDAR (skriveno dok se ne uloguje) ===== -->
+<section class="section" id="adminCalendarSection" style="display:none;">
+  <div class="container">
+    <p class="eyebrow">Raspored</p>
+    <h2 class="section-title">Admin kalendar</h2>
+    <p class="section-sub">Svi zakazani termini po nedelji. Prazna polja između termina su tvoja pauza.</p>
+
+    <div class="admin-controls">
+      <div class="admin-week-nav">
+        <button class="btn btn-ghost btn-small" id="prevWeekBtn">← Prethodna</button>
+        <span id="weekRangeLabel" class="admin-week-label"></span>
+        <button class="btn btn-ghost btn-small" id="nextWeekBtn">Sledeća →</button>
+      </div>
+      <div class="admin-barber-filter" id="barberFilter">
+        <button class="filter-pill active" data-barber="all">Svi</button>
+        <button class="filter-pill" data-barber="aleksandra">Aleksandra</button>
+        <button class="filter-pill" data-barber="nikola">Nikola</button>
+        <button class="filter-pill" data-barber="dimitrije">Dimitrije</button>
+      </div>
+    </div>
+
+    <div id="adminWeekGrid" class="admin-week-grid"></div>
+  </div>
+</section>
+
+<script src="supabase-config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
